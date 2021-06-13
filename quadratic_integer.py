@@ -10,9 +10,6 @@ class QuadraticIntegerRing:
         for _ in (P, Q):
             if not isinstance(_, int):
                 raise ValueError(f"{_} (coefficients must be integers)")
-        # require P to be odd for the discriminant to be square-free
-        if P & 1 == 0:
-            raise ValueError(f"{P} (P must be odd)")
         self._P = P  # negative linear coefficient
         self._Q = Q  # constant coefficient
         self._SYM = sym
