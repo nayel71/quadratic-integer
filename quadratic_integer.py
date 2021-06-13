@@ -17,6 +17,7 @@ def is_square(num):
 
     return sqrt * sqrt == num
 
+
 class QuadraticIntegerRing:
     """Class representing \mathbb Z[x], where x is a non-integer root of
     X**2 - P*X + Q = 0
