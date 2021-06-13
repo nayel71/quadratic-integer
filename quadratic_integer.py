@@ -3,17 +3,17 @@
 def is_square(num):
     """Return True iff num is a perfect square."""
     if num < 0:
-       return False
+        return False
     if num in (0, 1, 4, 9, 16, 25, 36, 49, 64, 81):
-       return True
+        return True
     num_len = len(str(num))
     sqrt = "1"
     for _ in range(num_len // 2):
-       sqrt += "0"
+        sqrt += "0"
 
     sqrt = int(sqrt)
     while sqrt * sqrt < num:
-       sqrt += 1
+        sqrt += 1
 
     return sqrt * sqrt == num
 
