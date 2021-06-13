@@ -1,8 +1,25 @@
 """Symbolic integer arithmetic in quadratic integer rings"""
 
+def is_square(num):
+    """Return True iff num is a perfect square."""
+    if num < 0:
+       return False
+    if num in (0, 1, 4, 9, 16, 25, 36, 49, 64, 81):
+       return True
+    num_len = len(str(num))
+    sqrt = "1"
+    for _ in range(num_len // 2):
+       sqrt += "0"
+
+    sqrt = int(sqrt)
+    while sqrt * sqrt < num:
+       sqrt += 1
+
+    return sqrt * sqrt == num
+
 class QuadraticIntegerRing:
-    """Base class for symbolic integer arithmetic in \mathbb Z[x],
-    where x^2 - P*x + Q = 0
+    """Class representing \mathbb Z[x], where x is a non-integer root of
+    X**2 - P*X + Q = 0
     """
 
     def __init__(self, P, Q, sym="x"):
@@ -10,6 +27,14 @@ class QuadraticIntegerRing:
         for _ in (P, Q):
             if not isinstance(_, int):
                 raise ValueError(f"{_} (coefficients must be integers)")
+
+        # check if X**2 - P*X + Q is irreducible over the integers;
+        # since any rational root must be an integer by the rational
+        # roots theorem, we get a quadratic ring only if the polynomial
+        # is irreducible (i.e. has no integer root)
+        disc = P*P - 4*Q
+        if is_square(disc):
+            raise ValueError(f"{P}, {Q} (polynomial is not irreducible)")
         self._P = P  # negative linear coefficient
         self._Q = Q  # constant coefficient
         self._SYM = sym
