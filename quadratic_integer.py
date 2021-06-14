@@ -5,11 +5,7 @@ def is_square(num):
     if num < 0:
         return False
     num_len = len(str(num))
-    sqrt = "1"
-    for _ in range((num_len-1) // 2):
-        sqrt += "0"
-
-    lo = int(sqrt)
+    lo = 10**((num_len-1)//2)
     hi = lo * 10
     while lo <= hi:
         mid = lo + (hi-lo)//2
