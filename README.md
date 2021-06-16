@@ -6,17 +6,20 @@
 >>> phi = QuadraticInteger(zphi, 0, 1)
 >>> phi**2
 1 + phi
->>> psi = QuadraticInteger(zphi, 1, -1)
+>>> psi = phi.conj()
 >>> psi
 1 - phi
->>> phi + psi == -1
-False
 >>> phi + psi == 1
 True
 >>> phi * psi
 -1
+>>> phi.norm()
+-1
+>>> def irr(z):
+...     return (int(z)-z) * psi
+...
 >>> def fib(n):
-...     return int(phi**(n+1))
+...     return irr(phi**n)
 ...
 >>> fib(5)
 5

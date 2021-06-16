@@ -165,3 +165,17 @@ class QuadraticInteger:
         if rat == 0:
             return f"{irr}" if sgn == "+" else f"{sgn}{irr}"
         return f"{rat} {sgn} {irr}"
+
+    def conj(self):
+        """Return the (algebraic) conjugate of self."""
+        # conj(a + bx) = a + by, where y = P-x
+        # so a + by = a + b(P-x) = (a + bP) - bx
+        return QuadraticInteger(
+            self._parent,
+            self._r + self._i*self._parent._P,
+            -self._i
+        )
+
+    def norm(self):
+        """Return the (algebraic) norm of self."""
+        return self * self.conj()
