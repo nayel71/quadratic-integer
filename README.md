@@ -5,8 +5,8 @@ Example usage (run `help("quadratic_integer")` for details):
 ## Arithmetic in <img src="https://render.githubusercontent.com/render/math?math=\mathbb Z[\phi]" width=45>
 ```
 >>> from quadratic_integer import QuadraticIntegerRing, QuadraticInteger
->>> Zphi = QuadraticIntegerRing(1, -1, "phi")
->>> phi = QuadraticInteger(Zphi, 0, 1)
+>>> z_phi = QuadraticIntegerRing(1, -1, "phi")
+>>> phi = QuadraticInteger(z_phi, 0, 1)
 >>> phi**2
 1 + phi
 >>> psi = phi.conj()
@@ -35,31 +35,31 @@ True
 True
 ```
 
-## Finding Units in Quadratic Integer Rings
+## Finding Units
 ```
 >>> from quadratic_integer import QuadraticIntegerRing, QuadraticInteger
->>> Zi = QuadraticIntegerRing(0, 1, "i")
->>> for x in range(-100, 100):
-...     for y in range(-100, 100):
-...         z = QuadraticInteger(Zi, x, y)
-...         if abs(z.norm()) == 1:
+>>> z_i = QuadraticIntegerRing(0, 1, "i")
+>>> for y in range(-100, 100):
+...     for x in range(-100, 100):
+...         z = QuadraticInteger(z_i, x, y)
+...         if abs(z.norm() == 1):
 ...             print(z)
 ...
--1
 -i
-i
+-1
 1
->>> Zomega = QuadraticIntegerRing(-1, 1, "omega")
->>> for x in range(-100, 100):
-...     for y in range(-100, 100):
-...         z = QuadraticInteger(Zomega, x, y)
-...         if abs(z.norm()) == 1:
+i
+>>> z_omega = QuadraticIntegerRing(-1, 1, "omega")
+>>> for y in range(-100, 100):
+...     for x in range(-100, 100):
+...         z = QuadraticInteger(z_omega, x, y)
+...         if abs(z.norm() == 1):
 ...             print(z)
 ...
 -1 - omega
--1
 -omega
-omega
+-1
 1
+omega
 1 + omega
 ```

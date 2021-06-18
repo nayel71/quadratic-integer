@@ -178,4 +178,4 @@ class QuadraticInteger:
 
     def norm(self):
         """Return the (algebraic) norm of self."""
-        return int(self * self.conj())
+        return int(self.conj() * self)
