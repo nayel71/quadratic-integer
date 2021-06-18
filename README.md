@@ -42,7 +42,7 @@ True
 >>> for y in range(-100, 100):
 ...     for x in range(-100, 100):
 ...         z = QuadraticInteger(z_i, x, y)
-...         if abs(z.norm() == 1):
+...         if abs(z.norm()) == 1:
 ...             print(z)
 ...
 -i
@@ -53,7 +53,7 @@ i
 >>> for y in range(-100, 100):
 ...     for x in range(-100, 100):
 ...         z = QuadraticInteger(z_omega, x, y)
-...         if abs(z.norm() == 1):
+...         if abs(z.norm()) == 1:
 ...             print(z)
 ...
 -1 - omega
