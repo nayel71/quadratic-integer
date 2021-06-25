@@ -1,5 +1,6 @@
 """Symbolic integer arithmetic in quadratic integer rings"""
 
+
 def is_square(num):
     """Return True iff num is a perfect square."""
     if num <= 0:
@@ -113,7 +114,8 @@ class QuadraticInteger:
             return QuadraticInteger(
                 self._parent,
                 self._r*other._r - self._i*other._i*self._parent._Q,
-                self._r*other._i + self._i*other._r + self._i*other._i*self._parent._P
+                self._r*other._i + self._i*other._r +
+                self._i*other._i*self._parent._P
             )
         return NotImplemented
 
