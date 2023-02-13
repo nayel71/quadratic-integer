@@ -4,7 +4,7 @@
 def is_square(num):
     """Return True iff num is a perfect square."""
     if num <= 0:
-        return num is 0
+        return num == 0
     num_len = len(str(num))
     lo = 10**((num_len-1)//2)
     hi = lo * 10
