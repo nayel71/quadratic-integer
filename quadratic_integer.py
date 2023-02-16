@@ -43,9 +43,7 @@ class QuadraticIntegerRing:
     def __eq__(self, other):
         """Return self == other."""
         if isinstance(other, QuadraticIntegerRing):
-            return self._P == other._P and\
-                   self._Q == other._Q and\
-                   self._SYM == other._SYM
+            return self._P == other._P and self._Q == other._Q
         return NotImplemented
 
     def __req__(self, other):
